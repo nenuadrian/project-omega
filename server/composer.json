@@ -1,0 +1,23 @@
+{
+    "name": "adriannenu/mvc",
+    "authors": [
+        {
+            "name": "Adrian Nenu",
+            "email": "adrian.nenu@gmail.com"
+        }
+    ],
+    "require": {
+        "sergeytsalkov/meekrodb": "^2.4",
+        "phpfastcache/phpfastcache": "^9.0",
+        "particletree/pqp": "^1.1",
+        "jenssegers/date": "^4.0",
+        "chriskonnertz/bbcode": "^1.1",
+        "ramsey/uuid": "^4.3",
+        "fakerphp/faker": "^1.19.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.4",
+        "phpunit/php-code-coverage": "^9.2"
+    }
+}
