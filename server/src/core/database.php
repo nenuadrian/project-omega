@@ -2,7 +2,7 @@
 
 $file = getcwd() . '/../src/configs/environment.json';
 
-if (!file_Exists($file)) {
+if (!file_exists($file)) {
     die('Missing environment configs');
 }
 

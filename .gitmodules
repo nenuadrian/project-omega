@@ -1,3 +1,3 @@
 [submodule "Simple-Grid"]
-	path = server/world.nenuadrian.com/assets/Simple-Grid
+	path = server/public_html/assets/Simple-Grid
 	url = https://github.com/zachacole/Simple-Grid.git

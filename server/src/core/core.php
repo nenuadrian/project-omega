@@ -16,7 +16,6 @@ require 'controller.php';
 require 'input.php';
 require 'model.php';
 require 'routes.php';
-require 'database.php';
 
 /**
  * If we host our code at http://localhost/my-php/index.php
@@ -60,7 +59,11 @@ function mvc(): void {
         unset($parameters[0], $parameters[1]);
         if (isset($parameters[2])) unset($parameters[2]);
         $parameters = array_values(array_filter($parameters, function($p) { return $p && $p[0] != '&'; }));
-        routes($module)->routes($page, $parameters);
+        $controller = routes($module);
+        if (get_class($controller) !== 'SetupController') {
+            require 'database.php';
+        }
+        $controller->routes($page, $parameters);
     }
 }
 
