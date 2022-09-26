@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-$file = getcwd() . '/../src/configs/environment.json';
+$file = dirname(__FILE__) . '/../configs/environment.json';
 
 if (!file_exists($file)) {
     die('Missing environment configs');

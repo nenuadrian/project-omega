@@ -7,6 +7,8 @@ set_time_limit(300);
 
 error_reporting(E_ALL);
 
+define('CORE_DIR', '../project-omega/server');
+
 header("Access-Control-Allow-Origin: *");
 
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
@@ -15,8 +17,8 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'OPTIONS'
     exit(0);
 }
 
-require '../vendor/autoload.php';
-require '../src/core/core.php';
+require CORE_DIR . '/vendor/autoload.php';
+require CORE_DIR . '/src/core/core.php';
 
 Profiler::start();
 

@@ -9,9 +9,8 @@ class SetupController extends Controller {
                 "db_pass" => Input::post('db_pass'),
                 "db_name" => Input::post('db_name')
             ];
-            file_put_contents('server/src/configs/environment.json', json_encode($configs));
-            echo 'done';
-            die();
+            file_put_contents(dirname(__FILE__) . '/../configs/environment.json', json_encode($configs));
+            $this->redirect('/');
         }
         $this->render('setup');
     }

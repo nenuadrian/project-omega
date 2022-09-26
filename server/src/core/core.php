@@ -51,7 +51,9 @@ function mvc(): void {
 
     $path = isset($_SERVER['QUERY_STRING']) ? explode('/', $_SERVER['QUERY_STRING']) : [];
     if (!isset($path[1])) {
-        routes('home')->routes('index');
+      $module = 'home';
+      $page = 'index';
+      $parameters = [];
     } else {
         $module = $path[1];
         $page = isset($path[2]) ? explode('&', $path[2])[0] : null;
@@ -59,12 +61,15 @@ function mvc(): void {
         unset($parameters[0], $parameters[1]);
         if (isset($parameters[2])) unset($parameters[2]);
         $parameters = array_values(array_filter($parameters, function($p) { return $p && $p[0] != '&'; }));
-        $controller = routes($module);
-        if (get_class($controller) !== 'SetupController') {
-            require 'database.php';
-        }
-        $controller->routes($page, $parameters);
+        
     }
+  
+    $controller = routes($module);
+    if (get_class($controller) !== 'SetupController') {
+      require 'database.php';
+    }
+  
+    $controller->routes($page, $parameters);
 }
 
 
