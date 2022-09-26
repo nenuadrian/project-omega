@@ -2,7 +2,7 @@
 
 ## Setup
 
-First good thing to do is run `setup.sh` to install PHP dependencies.
+First good thing to do is run `setup.sh PATH_OF_PUBLIC` to install PHP dependencies.
 
 Then there is a `/setup` screen to install the DB and creating configuration files automagically.
 
