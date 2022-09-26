@@ -2,7 +2,13 @@
 
 ## Setup
 
-First good thing to do is run `setup.sh PATH_OF_PUBLIC` to install PHP dependencies.
+```
+curl -sS https://getcomposer.org/installer | php
+
+php composer.phar install
+
+/usr/local/php80/bin/php composer.phar install
+```
 
 Then there is a `/setup` screen to install the DB and creating configuration files automagically.
 
