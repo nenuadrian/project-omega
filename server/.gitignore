@@ -8,3 +8,6 @@ composer.phar
 /**/vendor/**
 
 **/environment.json
+
+composer.lock
+
