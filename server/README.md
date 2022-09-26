@@ -1,25 +1,14 @@
 # server
 
-## Environment configs - database
+## Setup
 
-server/src/configs/environment.json
+First good thing to do is run `setup.sh` to install PHP dependencies.
 
-```
-{
-    "db_host": "localhost",
-    "db_user": "root",
-    "db_pass": "root",
-    "db_name": "hades"
-}
-```
+Then there is a `/setup` screen to install the DB and creating configuration files automagically.
 
 ## Setup Locally
 
 Install MAMP https://www.mamp.info/
-
-```
-composer install
-```
 
 ## To Publish
 
