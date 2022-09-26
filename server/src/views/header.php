@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Administration</title>
+    <title><?=$title?></title>
     <link rel="stylesheet"  href="/assets/Simple-Grid/simple-grid.min.css">
     <link rel="stylesheet"  href="/assets/css/styles.css">
 </head>

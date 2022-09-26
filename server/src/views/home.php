@@ -1,3 +1,3 @@
-<?php View::render('header'); ?>
+<?php View::render('header', ['title' => 'Home']); ?>
 Hello World
 <?php View::render('footer'); ?>

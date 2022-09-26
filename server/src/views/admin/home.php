@@ -1,4 +1,4 @@
-<?php View::render('header'); ?>
+<?php View::render('header', ['title' => 'Admin']); ?>
 <div class="card">
     <div class="card-header">Stats</div>
     <div class="card-body">

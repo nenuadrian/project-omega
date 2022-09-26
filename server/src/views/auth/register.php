@@ -1,4 +1,4 @@
-<?php require (SRC_DIR . '/views/header.php'); ?>
+<?php View::render('header', ['title' => 'Register']); ?>
 
 <form method="post">
   <input type="email" name="email" placeholder="E-mail"/>
@@ -9,4 +9,4 @@
   </button>
 </form>
 
-<?php require (SRC_DIR . '/views/footer.php'); ?>
+<?php View::render('footer'); ?>

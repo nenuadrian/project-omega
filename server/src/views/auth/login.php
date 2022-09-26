@@ -1,4 +1,4 @@
-<?php View::render('header'); ?>
+<?php View::render('header', ['title' => 'Login']); ?>
 
 <form method="post">
   <input type="text" name="id" placeholder="Username or E-mail"/>
