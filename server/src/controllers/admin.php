@@ -9,7 +9,7 @@ class AdminController extends Controller {
         }
 
         $tVars['users'] = DB::queryFirstRow('select count(*) as c from users')['c'];
-        $this->render('admin/home', $tVars);
+        View::render('admin/home', $tVars);
     }
 
   

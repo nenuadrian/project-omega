@@ -36,9 +36,4 @@ abstract class Controller {
             "error" => $error
         ]);
     }
-
-    protected function render(string $view, array $variables = []): void {
-        extract($variables);
-        require SRC_DIR . "/views/$view.php"; 
-    }
 }

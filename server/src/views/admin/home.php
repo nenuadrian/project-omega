@@ -1,4 +1,4 @@
-<?php require (SRC_DIR . '/views/header.php'); ?>
+<?php View::render('header'); ?>
 <div class="card">
     <div class="card-header">Stats</div>
     <div class="card-body">
@@ -22,4 +22,5 @@
 
 </div>
 </div>
-<?php require (SRC_DIR . '/views/footer.php'); ?>
+<?php View::render('footer'); ?>
+

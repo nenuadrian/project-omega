@@ -1,3 +1,3 @@
-<?php require ('header.php'); ?>
+<?php View::render('header'); ?>
 Hello World
-<?php require ('footer.php'); ?>
+<?php View::render('footer'); ?>

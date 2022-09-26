@@ -1,4 +1,4 @@
-<?php require (SRC_DIR . '/views/header.php'); ?>
+<?php View::render('header'); ?>
 
 <form method="post">
   <input type="text" name="id" placeholder="Username or E-mail"/>
@@ -8,4 +8,4 @@
   </button>
 </form>
 
-<?php require (SRC_DIR . '/views/footer.php'); ?>
+<?php View::render('footer'); ?>

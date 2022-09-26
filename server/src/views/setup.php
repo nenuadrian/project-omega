@@ -1,4 +1,4 @@
-<?php require ('header.php'); ?>
+<?php View::render('header'); ?>
 <div class="row">
     <div class="col-12">
     <form method="post">
@@ -11,4 +11,4 @@
 </div>
 </div>
 
-<?php require ('footer.php'); ?>
+<?php View::render('footer'); ?>
