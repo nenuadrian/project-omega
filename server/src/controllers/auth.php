@@ -29,7 +29,7 @@ class AuthController extends Controller {
           $session_hash = $this->doLogin();
          $this->redirect(BASE_URL . '/home');
        }
-          $this->render('auth/login');
+       View::render('auth/login');
     }
 
     private function doRegister(): string {
@@ -61,9 +61,9 @@ class AuthController extends Controller {
     function register(): void {
           if (Input::post('action') == 'register') {
             $session_hash = $this->doRegister();
-         $this->redirect(BASE_URL . '/home');
+            $this->redirect(BASE_URL . '/home');
           }
-          $this->render('auth/register');
+          View::render('auth/register');
     }
 
 

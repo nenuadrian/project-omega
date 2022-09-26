@@ -2,6 +2,6 @@
 
 class HomeController extends Controller {
     function index(): void {
-        $this->render('home');
+        View::render('home');
     }
 }
