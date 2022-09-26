@@ -1,10 +1,8 @@
-<?php require ('../header.php'); ?>
+<?php require (SRC_DIR . '/views/header.php'); ?>
 <div class="card">
     <div class="card-header">Stats</div>
     <div class="card-body">
-        <?=number_format($users)?> users.<br/>
-        <?=number_format($orgs)?> organizations.
-        <?=number_format($servers)?> servers.
+        <?=number_format($users)?> users.
     </div>
     </div>
 <br/>
@@ -22,9 +20,6 @@
 <button type="submit" class="btn btn-success" name="action" value="generate">Generate</button>
 </form>
 
-<form method="post">
-<button type="submit" class="btn btn-success" name="action" value="servers">Generate servers</button>
-</form>
 </div>
 </div>
-<?php require ('../footer.php'); ?>
+<?php require (SRC_DIR . '/views/footer.php'); ?>

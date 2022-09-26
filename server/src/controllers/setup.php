@@ -2,16 +2,39 @@
 
 class SetupController extends Controller {
     function index(): void {
-        if (Input::post('action') === 'install') {
-            $configs = [
-                "db_host" => Input::post('db_host'),
-                "db_user" => Input::post('db_user'),
-                "db_pass" => Input::post('db_pass'),
-                "db_name" => Input::post('db_name')
-            ];
-            file_put_contents(dirname(__FILE__) . '/../configs/environment.json', json_encode($configs));
-            $this->redirect('/');
-        }
-        $this->render('setup');
+      $dbFile = dirname(__FILE__) . '/../../DB.sql';
+      
+      if (!file_exists($dbFile)) {
+          die('DB.sql is missing - expected in: ' . $dbFile);
+      }
+      
+      $envFile = dirname(__FILE__) . '/../configs/environment.json';
+
+      if (Input::post('action') === 'install') {
+          $configs = [
+              "db_host" => Input::post('db_host'),
+              "db_user" => Input::post('db_user'),
+              "db_pass" => Input::post('db_pass'),
+              "db_name" => Input::post('db_name')
+          ];
+        
+          if (file_exists($envFile)) {
+            unlink($envFile);
+          }
+        
+          file_put_contents($envFile, json_encode($configs));
+          
+          require dirname(__FILE__) . '/../core/database.php';
+          
+          $sqls = explode(";\n", file_get_contents($dbFile));
+          foreach($sqls as $sql) {
+              if ($sql) {
+                  DB::query($sql);
+              }
+          }
+
+          $this->redirect('/');
+      }
+      $this->render('setup');
     }
 }

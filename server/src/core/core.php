@@ -57,6 +57,7 @@ function mvc(): void {
     } else {
         $module = $path[1];
         $page = isset($path[2]) ? explode('&', $path[2])[0] : null;
+        $page = str_replace('-', '_', $page);
         $parameters = $path;
         unset($parameters[0], $parameters[1]);
         if (isset($parameters[2])) unset($parameters[2]);
