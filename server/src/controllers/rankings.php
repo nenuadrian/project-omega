@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 class RankingsController extends GuardController {
-    function index(): void {
+    function rest(): void {
         $rankings = Stats::top();
 
         $this->json(200, [
@@ -10,7 +10,7 @@ class RankingsController extends GuardController {
         ]);
     }
 
-    function paginated(string $page): void {
+    function paginated_rest(string $page): void {
         $rankings = Stats::paginated(intval($page));
 
         $this->json(200, [

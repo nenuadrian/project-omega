@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
 class ProfileController extends GuardController {
-    function index(): void {
+    function rest(): void {
         $this->view($this->user['user_id']);
     }
     
-    function view(string $userId): void {
+    function view_rest(string $userId): void {
         $user   = Stats::byId(intval($userId));
         $badges = Badge::byUserId(intval($userId));
         $orgs   = Organizations::byUserId(intval($userId));

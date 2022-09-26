@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 class UserController extends GuardController {
-    function settings(): void {
+    function settings_rest(): void {
         if (Input::post('data')) {
             $settings = Settings::byUserId(intval($this->user['user_id']));
             $this->json(200, $settings);
