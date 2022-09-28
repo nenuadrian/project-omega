@@ -22,6 +22,10 @@ abstract class Controller {
     }
 
     protected function redirect(string $url): void {
+        if(strpos($url, 'http') === false) {
+          $url = BASE_URL . '/' . $url;
+        }
+        
         if (!headers_sent()) {
             header('Location: ' . $url);
         }
