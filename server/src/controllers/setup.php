@@ -35,6 +35,6 @@ class SetupController extends Controller {
 
           $this->redirect('/');
       }
-      $this->render('setup');
+      View::render('setup');
     }
 }
