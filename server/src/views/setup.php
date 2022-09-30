@@ -1,4 +1,4 @@
-<?php View::render('header'); ?>
+<?php View::render('header', ['title' => 'Setup']); ?>
 <div class="row">
     <div class="col-12">
     <form method="post">
