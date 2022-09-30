@@ -6,6 +6,6 @@ class FeedbackController extends GuardController {
             'user_id' => Session::validateSession()['user_id'],
             'content' => Input::post('feedback')
         ]);
-        $this->json(200, null);
+        $this->json(200);
     }
 }
