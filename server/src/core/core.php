@@ -17,6 +17,7 @@ require 'input.php';
 require 'model.php';
 require 'view.php';
 require 'routes.php';
+require 'configs.php';
 
 /**
  * If we host our code at http://localhost/my-php/index.php
@@ -65,7 +66,7 @@ function mvc(): void {
         $parameters = array_values(array_filter($parameters, function($p) { return $p && $p[0] != '&'; }));
         
     }
-  
+    Configs::init();
     $controller = routes($module);
     if (get_class($controller) !== 'SetupController') {
       require 'database.php';
