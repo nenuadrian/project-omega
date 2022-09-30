@@ -8,6 +8,9 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install
 
 /usr/local/php80/bin/php composer.phar install
+
+rm -rf ../../domain
+mv public_html ../../domain
 ```
 
 Then there is a `/setup` screen to install the DB and creating configuration files automagically.
