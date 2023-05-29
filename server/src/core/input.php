@@ -4,9 +4,8 @@ abstract class Input {
     public static function post(string $field): mixed {
         $json = file_get_contents('php://input');
 
-        if ($json === false) {
-            throw new Exception('Error reading request data');
-        }
+        if (!$json) return null;
+        
 
         $data = json_decode($json, true);
 
@@ -17,6 +16,7 @@ abstract class Input {
         $_POST = array_merge($_POST ?: [], $data);
 
         return $_POST[$field] ?? null;
+        
     }
 
     public static function get(string $field): ?string {

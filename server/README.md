@@ -38,3 +38,4 @@ Publish via FTP copy.
 ```
 vendor/bin/phpstan analyse src tests
 ```
+
