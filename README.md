@@ -6,7 +6,7 @@ Lightweight Model-View-Controller (MVC) framework for PHP that aims to provide a
 ```
 ssh-keygen -t rsa
 
-git clone git@github.com:nenuadrian/project-omega.git
+git clone https://github.com/nenuadrian/project-omega.git
 
 cd project-omega/server
 ```
