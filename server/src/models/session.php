@@ -14,6 +14,7 @@ class Session extends Model {
 
     public static function validateSession(): ?array {
         $sessionHash = static::currentSession();
+        if (!$sessionHash) return null;
         return DB::queryFirstRow("SELECT U.user_id, U.username, U.coins, U.level FROM " . Session::$table . " S left outer join stats U on U.user_id = S.user_id where session_hash = %s and logged_out_at is null", $sessionHash);
     }
 
