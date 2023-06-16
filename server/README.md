@@ -39,5 +39,6 @@ Publish via FTP copy.
 
 ```
 vendor/bin/phpstan analyse src tests
+/usr/local/php80/bin/php vendor/bin/phpstan analyse src tests
 ```
 
