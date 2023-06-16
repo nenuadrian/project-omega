@@ -2,6 +2,14 @@
 
 Lightweight Model-View-Controller (MVC) framework for PHP that aims to provide a simple and efficient solution for building web applications. It emphasizes simplicity, flexibility, and performance, making it ideal for small to medium-sized projects.
 
+# Server 
+
+Custom PHP.
+
+# Client
+
+Choices between Angular in `client` directory and HTML in PHP, using `server/src/views/`.
+
 # Install 
 ```
 git clone https://github.com/nenuadrian/project-omega.git
