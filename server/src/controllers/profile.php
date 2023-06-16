@@ -2,7 +2,7 @@
 
 class ProfileController extends GuardController {
     function rest(): void {
-        $this->view($this->user['user_id']);
+        $this->view_rest($this->user['user_id']);
     }
     
     function view_rest(string $userId): void {
