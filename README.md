@@ -18,7 +18,7 @@ git clone https://github.com/nenuadrian/project-omega.git
 # Add key to github 
 ```
 ssh-keygen -t rsa
-cat /home/dh_863nvc/.ssh/id_rsa.pub
+cat .ssh/id_rsa.pub
 ```
 # Update submodules
 ```
