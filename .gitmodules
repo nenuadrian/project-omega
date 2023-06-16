@@ -1,3 +1,6 @@
 [submodule "Simple-Grid"]
 	path = server/public_html/assets/Simple-Grid
 	url = https://github.com/zachacole/Simple-Grid.git
+[submodule "server/src/core"]
+	path = server/src/core
+	url = git@github.com:nenuadrian/project-omega-core.git
