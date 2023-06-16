@@ -13,6 +13,10 @@ Choices between Angular in `client` directory and HTML in PHP, using `server/src
 # Install 
 ```
 git clone https://github.com/nenuadrian/project-omega.git
+
+git submodule update --init --recursive
+
+git pull --recurse-submodules
 ```
 
 # Add key to github 
