@@ -23,8 +23,8 @@ git pull --recurse-submodules
 ```
 ssh-keygen -t rsa
 cat .ssh/id_rsa.pub
+
+git config --global user.email adrian.nenu@gmail.com
+git config --global user.name Adrian
 ```
-# Update submodules
-```
-git submodule update --recursive --remote
-```
+
