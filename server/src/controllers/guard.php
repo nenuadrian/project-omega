@@ -3,7 +3,7 @@
 abstract class GuardController extends Controller {
     protected ?array $user = null;
 
-    public function __construct() {
+    public function init() {
         $this->user = Session::validateSession();
     }
     
