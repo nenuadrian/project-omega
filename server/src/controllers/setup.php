@@ -22,7 +22,7 @@ class SetupController extends Controller {
             unlink($envFile);
           }
         
-          file_put_contents($envFile, json_encode($configs));
+          file_put_contents($envFile, json_encode($configs, JSON_PRETTY_PRINT));
           
           require dirname(__FILE__) . '/../core/database.php';
           
