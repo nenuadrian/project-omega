@@ -20,6 +20,22 @@ button:hover {
   text-align: right;
 }
 
+.cookies {
+    background-color: #9b151d!important;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    border-top: 2px solid black;
+  font-weight:bold;
+  text-align:center;
+}
+.cookies a {
+  color:white;
+}
+
 input[type=email],
 input[type=text],
 input[type=password] {
