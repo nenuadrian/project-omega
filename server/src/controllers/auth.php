@@ -94,6 +94,7 @@ try {
 
     function logout() {
       session_destroy();
+      $this->redirect(BASE_URL);
     }
 
 }
