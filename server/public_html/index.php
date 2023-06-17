@@ -35,10 +35,10 @@ if(Input::cookie('consent') === null) {
   if ($geo['geoplugin_countryCode'] == Null || in_array($geo['geoplugin_countryCode'],$country_codesEU)){
 		// User is in the EU or we do not know where he is from.
 		// Ask for cookies consent, if within 15 minutes the user comes back, they accept
-		setcookie("consent", 'false', time() + (60*15));
+		setcookie("consent", 'false', time() + (60*15), "/");
 	}else{
 		// The user is not in the EU, so we can set cookies
-		setcookie("consent", 'true', time() + (60*15));
+		setcookie("consent", 'true', time() + (60*15), "/");
 	}
 } else if (Input::cookie('consent') == 'true') {
     session_start();
@@ -47,7 +47,7 @@ if(Input::cookie('consent') === null) {
 if (Input::cookie('consent') === 'false') {
   if (Input::post('cookies') === 'accept') {
     $_COOKIE['consent'] = 'true';
-		setcookie("consent", 'true', time() + (90 * 24 * 60 * 60));
+		setcookie("consent", 'true', time() + (90 * 24 * 60 * 60), "/");
   }
 }
 
