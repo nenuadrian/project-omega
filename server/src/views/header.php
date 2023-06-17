@@ -23,6 +23,11 @@
             <li class="nav-item">
               <a class="nav-link" href="<?=BASE_URL?>">Home</a>
             </li>
+              <?php if (Session::currentSession()): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=BASE_URL?>/auth/logout">Logout</a>
+                </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>
