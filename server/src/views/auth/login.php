@@ -12,6 +12,8 @@
         Login
       </button>
     </form>
+    <br/>
+    <a class="btn btn-sm btn-primary" href="<?=BASE_URL?>/auth/register">Create a new account</a>
   </div>
 </div>
 
