@@ -14,7 +14,7 @@
     <?php endif; ?>
     <div class=" text-center">
         <form method="post">
-        <input class="form-control" type="text" name="id" placeholder="Username or E-mail"/>
+        <input class="form-control" type="text" autofocus autocorrect="off" autocapitalize="none" name="id" placeholder="Username or E-mail"/>
         <input class="form-control" type="password" name="password" placeholder="Password"/>
         <button class="btn btn-primary" type="submit" name="action" value="login">
             Login
