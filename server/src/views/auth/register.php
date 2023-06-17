@@ -12,7 +12,7 @@
             </div>
           <?php endforeach; ?>
         <?php endif; ?>
-        <input class="form-control" required type="email" name="email" placeholder="E-mail" value="<?=Input::post('email')?>"/>
+        <input class="form-control" required type="email" name="email" placeholder="E-mail" autofocus value="<?=Input::post('email')?>"/>
         <input class="form-control" required type="text" name="username" placeholder="Username" value="<?=Input::post('username')?>"/>
         <input class="form-control" required type="password" name="password" placeholder="Password" value="<?=Input::post('password')?>"/>
         <button class="btn btn-lg btn-primary" type="submit" name="action" value="register">
