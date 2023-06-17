@@ -59,17 +59,9 @@ class AuthController extends Controller {
     }
 
     private function captcha($token, $action) {
-        // call curl to POST request 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => Configs::get('captcha'), 'response' => $token)));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $arrResponse = json_decode($response, true);
-         
-        // verify the response 
+        $data = array('secret' => Configs::get('captcha'), 'response' => $token);
+        $response = WpOrg\Requests\Requests::post("https://www.google.com/recaptcha/api/siteverify", [], json_encode($data));
+        $arrResponse = json_decode($response->body, true);
         return $arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrResponse["score"] >= 0.5;
     }
         
