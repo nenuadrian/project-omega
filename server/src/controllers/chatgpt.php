@@ -10,8 +10,8 @@ class ChatgptController extends GuardController {
 
   private function chatGPTRequest($messages) {
     $headers = [
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . Configs::get('openaisecret')
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer ' . Configs::get('openaisecret')
     ];
 
     $data = [
@@ -21,22 +21,10 @@ class ChatgptController extends GuardController {
       "temperature"=> 0.7 // Adjust as needed
     ];
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $url = 'https://api.openai.com/v1/chat/completions';
+    $response = WpOrg\Requests\Requests::post($url, $headers, json_encode($data));
 
-    $response = curl_exec($ch);
-
-    if ($response === false) {
-        echo 'Error: ' . curl_error($ch);
-    }
-
-    curl_close($ch);
-    $decodedResponse = json_decode($response, true);
-
+    $decodedResponse = json_decode($response->body, true);
     return $decodedResponse;
   }
 }
