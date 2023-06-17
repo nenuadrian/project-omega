@@ -29,7 +29,8 @@ class AuthController extends Controller {
 try {
        if (Input::post('action') == 'login') {
           $session_hash = $this->doLogin();
-         $this->redirect(BASE_URL . '/home');
+           $_SESSION['session_hash'] = $session_hash;
+         $this->redirect(BASE_URL);
        }
        } catch(Exception $error) {
         $tVars['errors'][] = $error->getMessage();
@@ -75,7 +76,8 @@ try {
 try {
           if (Input::post('action') == 'register') {
             $session_hash = $this->doRegister();
-            $this->redirect(BASE_URL . '/home');
+               $_SESSION['session_hash'] = $session_hash;
+            $this->redirect(BASE_URL);
           }
           } catch(Exception $error) {
             $tVars['errors'][] = $error->getMessage();
