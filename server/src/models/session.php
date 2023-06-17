@@ -9,6 +9,8 @@ class Session extends Model {
         $sessionHash = isset($headers['Authorization']) ? $headers['Authorization'] : null;
         $sessionHash = isset($headers['authorization']) ? $headers['authorization'] : null;
         $sessionHash = isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : null;
+        if (!$sessionHash && isset($_SESSION) && isset($_SESSION['session_hash'])) $sessionHash = $_SESSION['session_hash'];
+
         return $sessionHash;
     }
 
