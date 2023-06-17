@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php if (Input::cookie('consent') !== 'true'): ?>
-    <div class="cookies">
+    <div class="cookies" id="cookies">
       <p>
         We use cookies to ensure that we give you the best experience on our website. They help us both in term of analytics and to provide you with a complete experience (e.g. our comic creator). <br/>You can read our <a href="<?=BASE_URL . '/pages/privacy-policy'?>">Privacy Policy</a> and <a href="<?=BASE_URL . '/pages/terms-of-service'?>">Terms and Conditions</a>.
       </p>  
@@ -20,8 +20,9 @@
         </button>
       </form>
     </div>
-  <?php else: ?>
-  <style>.cookies{display:none!important;}</style>
+<script>
+cookieStore.get('consent').then(v => { if (v && v.value == 'true') document.getElementById("cookies").style.display = 'none'; })
+    </script>
   <?php endif; ?>
 
     <div class="container">
