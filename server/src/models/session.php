@@ -4,7 +4,7 @@
 class Session extends Model {
     protected static string $table = 'sessions';
 
-    private static function currentSession(): ?string {
+    static function currentSession(): ?string {
         $headers = apache_request_headers();
         $sessionHash = isset($headers['Authorization']) ? $headers['Authorization'] : null;
         $sessionHash = isset($headers['authorization']) ? $headers['authorization'] : null;
