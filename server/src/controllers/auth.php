@@ -25,11 +25,16 @@ class AuthController extends Controller {
     }
   
    function login(): void {
+              $tVars = ['errors' => []];
+try {
        if (Input::post('action') == 'login') {
           $session_hash = $this->doLogin();
          $this->redirect(BASE_URL . '/home');
        }
-       View::render('auth/login');
+       } catch(Exception $error) {
+        $tVars['errors'][] = $error->getMessage();
+       }
+       View::render('auth/login', $tVars);
     }
 
     private function doRegister(): string {
@@ -66,11 +71,16 @@ class AuthController extends Controller {
     }
         
     function register(): void {
+               $tVars = ['errors' => []];
+try {
           if (Input::post('action') == 'register') {
             $session_hash = $this->doRegister();
             $this->redirect(BASE_URL . '/home');
           }
-          View::render('auth/register');
+          } catch(Exception $error) {
+            $tVars['errors'][] = $error->getMessage();
+           }
+          View::render('auth/register' $tVars);
     }
 
 
