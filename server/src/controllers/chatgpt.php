@@ -20,9 +20,12 @@ class ChatgptController extends GuardController {
       "max_tokens"=> 400, // Adjust as needed
       "temperature"=> 0.7 // Adjust as needed
     ];
+      $options = [
+            'timeout' => 20,
+        ];
 
     $url = 'https://api.openai.com/v1/chat/completions';
-    $response = WpOrg\Requests\Requests::post($url, $headers, json_encode($data));
+    $response = WpOrg\Requests\Requests::post($url, $headers, json_encode($data), $options);
 
     $decodedResponse = json_decode($response->body, true);
     return $decodedResponse;
