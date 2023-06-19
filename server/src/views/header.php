@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
     <title><?=$title?></title>
-    <base href="/project-omega/server/public_html/">
     <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
      <link rel="icon" type="image/png" href="/assets/img/icon.png">
@@ -30,7 +29,7 @@
     <br/>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">App</a>
+        <a class="navbar-brand" href="<?=BASE_URL?>">App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,11 +42,10 @@
 
           <div class="nav-text">
              <ul class="navbar-nav me-auto">
-                <?php if (Session::currentSession()): ?>
                   <li class="nav-item">
-                      <a class="nav-link" href="<?=BASE_URL?>/auth/logout">Logout</a>
+                  <a class="nav-link" href="<?=BASE_URL?>/auth/register">Register</a>
+                  <a class="nav-link" href="<?=BASE_URL?>/auth/login">Login</a>
                   </li>
-              <?php endif; ?>
             </ul>
           </div>
         </div>
