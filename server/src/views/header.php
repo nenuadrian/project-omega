@@ -29,23 +29,26 @@
     <br/>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="<?=BASE_URL?>">App</a>
+        <a class="navbar-brand" href="<?=BASE_URL?>" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?=BASE_URL?>">Home</a>
+              <a class="nav-link" href="<?=BASE_URL?>" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Home</a>
             </li>
           </ul>
 
           <div class="nav-text">
              <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
-                  <a class="nav-link" href="<?=BASE_URL?>/auth/register">Register</a>
-                  <a class="nav-link" href="<?=BASE_URL?>/auth/login">Login</a>
+             <li class="nav-item">
+                  <a class="btn btn-sm btn-info" href="<?=BASE_URL?>/auth/register" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Register</a>
                   </li>
+                  <li class="nav-item">
+                  <a class="btn btn-sm btn-primary" href="<?=BASE_URL?>/auth/login" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>
+                  </li>
+
             </ul>
           </div>
         </div>
