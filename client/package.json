@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "release": "ng build && mkdir -p ../server/public_html/app && cp -R dist/client/* ../server/public_html/app",
+    "release": "ng build && rm -rf ../server/public_html/app && mkdir -p ../server/public_html/app && cp -R dist/client/* ../server/public_html/app && cp -R dist/client/browser/* ../server/public_html/app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
