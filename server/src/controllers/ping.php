@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
-class HomeController extends Controller {
-    function index(): void {
+class HomeController extends Controller
+{
+    public function index(): void
+    {
         $this->json(200);
     }
 }

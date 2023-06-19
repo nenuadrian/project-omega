@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
-class AdminController extends Controller {
-    function index(): void {
+class AdminController extends Controller
+{
+    public function index(): void
+    {
         $tVars = [];
         if (Input::post('action') == 'generate') {
             $users = Admin::generateUsers(intval(Input::post('n')));
@@ -12,5 +14,4 @@ class AdminController extends Controller {
         View::render('admin/home', $tVars);
     }
 
-  
 }

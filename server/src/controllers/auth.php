@@ -1,52 +1,58 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
-class AuthController extends Controller {
-    function validate(): void {
+class AuthController extends Controller
+{
+    public function validate(): void
+    {
         $user = Session::validateSession();
         $this->json(200, $user);
     }
 
-    private function doLogin(): string {
+    private function doLogin(): string
+    {
         if (Input::post('id') && Input::post('password')) {
             $session_hash = null;
-            $session_hash = User::login(Input::post('id'), Input::post('password'));            
+            $session_hash = User::login(Input::post('id'), Input::post('password'));
             return $session_hash;
         } else {
             throw new Exception("Missing data");
-        } 
-    }
-  
-    function login_rest(): void {
-          $session_hash = $this->doLogin();
-
-          $this->json(200, [
-              "sessionHash" => $session_hash
-          ]);
-    }
-  
-   function login(): void {
-              $tVars = ['errors' => []];
-try {
-       if (Input::post('action') == 'login') {
-          $session_hash = $this->doLogin();
-           $_SESSION['session_hash'] = $session_hash;
-         $this->redirect(BASE_URL);
-       }
-       } catch(Exception $error) {
-        $tVars['errors'][] = $error->getMessage();
-       }
-       View::render('auth/login', $tVars);
+        }
     }
 
-    private function doRegister(): string {
+    public function login_rest(): void
+    {
+        $session_hash = $this->doLogin();
+
+        $this->json(200, [
+            "sessionHash" => $session_hash,
+        ]);
+    }
+
+    public function login(): void
+    {
+        $tVars = ['errors' => []];
+        try {
+            if (Input::post('action') == 'login') {
+                $session_hash = $this->doLogin();
+                $_SESSION['session_hash'] = $session_hash;
+                $this->redirect(BASE_URL);
+            }
+        } catch (Exception $error) {
+            $tVars['errors'][] = $error->getMessage();
+        }
+        View::render('auth/login', $tVars);
+    }
+
+    private function doRegister(): string
+    {
         if (Input::post('username') && Input::post('email') && Input::post('password')) {
             if (!filter_var(Input::post('email'), FILTER_VALIDATE_EMAIL)) {
                 throw new Exception("Invalid e-mail format!");
             }
             $session_hash = null;
-            $userId = User::register(Input::post('username'), Input::post('email'), 
+            $userId = User::register(Input::post('username'), Input::post('email'),
                 Input::post('password'));
-            
+
             $session_hash = User::login(Input::post('email'), Input::post('password'));
 
             return $session_hash;
@@ -54,39 +60,42 @@ try {
             throw new Exception("Missing data");
         }
     }
-  
-    function register_rest(): void {
-      
-          $session_hash = $this->doRegister();
 
-          $this->json(200, [
-              "sessionHash" => $session_hash
-          ]);
+    public function register_rest(): void
+    {
+
+        $session_hash = $this->doRegister();
+
+        $this->json(200, [
+            "sessionHash" => $session_hash,
+        ]);
     }
 
-    private function captcha($token, $action) {
+    private function captcha($token, $action)
+    {
         $data = array('secret' => Configs::get('captcha'), 'response' => $token);
         $response = WpOrg\Requests\Requests::post("https://www.google.com/recaptcha/api/siteverify", [], json_encode($data));
         $arrResponse = json_decode($response->body, true);
         return $arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrResponse["score"] >= 0.5;
     }
-        
-    function register(): void {
-               $tVars = ['errors' => []];
-try {
-          if (Input::post('action') == 'register') {
-            $session_hash = $this->doRegister();
-               $_SESSION['session_hash'] = $session_hash;
-            $this->redirect(BASE_URL);
-          }
-          } catch(Exception $error) {
+
+    public function register(): void
+    {
+        $tVars = ['errors' => []];
+        try {
+            if (Input::post('action') == 'register') {
+                $session_hash = $this->doRegister();
+                $_SESSION['session_hash'] = $session_hash;
+                $this->redirect(BASE_URL);
+            }
+        } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
-           }
-          View::render('auth/register' $tVars);
+        }
+        View::render('auth/register', $tVars);
     }
 
-
-    function forgot(): void {
+    public function forgot(): void
+    {
         if (Input::post('email') && filter_var(Input::post('email'), FILTER_VALIDATE_EMAIL)) {
             $this->json(200);
         } else {
@@ -94,9 +103,10 @@ try {
         }
     }
 
-    function logout() {
-      session_destroy();
-      $this->redirect(BASE_URL);
+    public function logout()
+    {
+        session_destroy();
+        $this->redirect(BASE_URL);
     }
 
 }

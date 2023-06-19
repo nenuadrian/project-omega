@@ -1,13 +1,16 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
-abstract class GuardController extends Controller {
+abstract class GuardController extends Controller
+{
     protected ?array $user = null;
 
-    public function init() {
+    public function init()
+    {
         $this->user = Session::validateSession();
     }
-    
-    protected function guard(): bool {
+
+    protected function guard() : bool
+    {
         return !!$this->user;
     }
 }
