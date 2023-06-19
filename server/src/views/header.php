@@ -28,7 +28,7 @@
 
     <div class="container">
     <br/>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,12 +39,17 @@
             <li class="nav-item">
               <a class="nav-link" href="<?=BASE_URL?>">Home</a>
             </li>
-              <?php if (Session::currentSession()): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?=BASE_URL?>/auth/logout">Logout</a>
-                </li>
-            <?php endif; ?>
           </ul>
+
+          <div class="nav-text">
+             <ul class="navbar-nav me-auto">
+                <?php if (Session::currentSession()): ?>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<?=BASE_URL?>/auth/logout">Logout</a>
+                  </li>
+              <?php endif; ?>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
