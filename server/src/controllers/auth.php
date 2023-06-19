@@ -18,16 +18,6 @@ class AuthController extends Controller
             throw new Exception("Missing data");
         }
     }
-
-    public function login_rest(): void
-    {
-        $session_hash = $this->doLogin();
-
-        $this->json(200, [
-            "sessionHash" => $session_hash,
-        ]);
-    }
-
     public function login(): void
     {
         $tVars = ['errors' => []];
@@ -35,7 +25,7 @@ class AuthController extends Controller
             if (Input::post('action') == 'login') {
                 $session_hash = $this->doLogin();
                 $_SESSION['session_hash'] = $session_hash;
-                $this->redirect(BASE_URL);
+                $this->redirect(BASE_URL . '/app');
             }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
@@ -61,16 +51,6 @@ class AuthController extends Controller
         }
     }
 
-    public function register_rest(): void
-    {
-
-        $session_hash = $this->doRegister();
-
-        $this->json(200, [
-            "sessionHash" => $session_hash,
-        ]);
-    }
-
     private function captcha($token, $action)
     {
         $data = array('secret' => Configs::get('captcha'), 'response' => $token);
@@ -86,7 +66,7 @@ class AuthController extends Controller
             if (Input::post('action') == 'register') {
                 $session_hash = $this->doRegister();
                 $_SESSION['session_hash'] = $session_hash;
-                $this->redirect(BASE_URL);
+                $this->redirect(BASE_URL . '/app');
             }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
