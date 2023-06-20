@@ -94,6 +94,9 @@ class AuthController extends Controller
 
     public function logout()
     {
+         if (session_status() == PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }
         session_destroy();
         $this->redirect(BASE_URL);
     }
