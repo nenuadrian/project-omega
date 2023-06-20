@@ -22,11 +22,16 @@ class AuthController extends Controller
     {
         $tVars = ['errors' => []];
         try {
+          if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
+
             if (Input::post('action') == 'login') {
                 $session_hash = $this->doLogin();
                 $_SESSION['session_hash'] = $session_hash;
                 $this->redirect(BASE_URL . '/app');
             }
+          } else {
+              throw new Exception('Failed captcha');
+          }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
         }
@@ -51,23 +56,27 @@ class AuthController extends Controller
         }
     }
 
-    private function captcha($token, $action)
+    private function captcha($token)
     {
         $data = array('secret' => Configs::get('captcha'), 'response' => $token);
         $response = WpOrg\Requests\Requests::post("https://www.google.com/recaptcha/api/siteverify", [], json_encode($data));
         $arrResponse = json_decode($response->body, true);
-        return $arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrResponse["score"] >= 0.5;
+        return $arrResponse["success"];
     }
 
     public function register(): void
     {
         $tVars = ['errors' => []];
         try {
+              if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
             if (Input::post('action') == 'register') {
                 $session_hash = $this->doRegister();
                 $_SESSION['session_hash'] = $session_hash;
                 $this->redirect(BASE_URL . '/app');
             }
+              } else {
+                   throw new Exception("Failed captcha");
+              }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
         }
