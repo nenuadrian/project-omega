@@ -24,7 +24,7 @@ export class ShopComponent {
         if (checkout) {
           window.open(checkout.data.url, "_blank");
         }
-        this.loading = true;
+        this.loading = false;
       });
   }
 }
