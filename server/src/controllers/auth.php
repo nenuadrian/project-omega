@@ -59,7 +59,7 @@ class AuthController extends Controller
     private function captcha($token)
     {
         $data = array('secret' => Configs::get('captcha'), 'response' => $token);
-        $response = WpOrg\Requests\Requests::post("https://www.google.com/recaptcha/api/siteverify", [], json_encode($data));
+        $response = WpOrg\Requests\Requests::post("https://www.google.com/recaptcha/api/siteverify", [], $data);
         $arrResponse = json_decode($response->body, true);
         return $arrResponse["success"];
     }
