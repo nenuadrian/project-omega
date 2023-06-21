@@ -2,6 +2,14 @@
     margin-bottom: 20px;
 }
 
+* {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
 .text-right {
     text-align:right;
 }
