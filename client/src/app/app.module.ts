@@ -8,6 +8,7 @@ import { AuthInterceptor } from './auth-interceptor';
 import { LoadingComponent } from './loading/loading.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShopComponent } from './shop/shop.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShopComponent } from './shop/shop.component';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: DataService, useClass: DataService }
   ],
   bootstrap: [AppComponent]
 })
