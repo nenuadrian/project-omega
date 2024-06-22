@@ -27,4 +27,3 @@ cat .ssh/id_rsa.pub
 git config --global user.email adrian.nenu@gmail.com
 git config --global user.name Adrian
 ```
-
