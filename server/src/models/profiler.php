@@ -1,8 +1,5 @@
 <?php declare(strict_types=1);
 
-define('CORE_DIR', dirname(__FILE__) . '/../../../');
-
-require CORE_DIR . '/vendor/autoload.php';
 
 class Profiler {
     public static array $profiledQueries = [];
@@ -18,13 +15,6 @@ class Profiler {
 
             Profiler::$profiler->setConsole(Profiler::$console);
             Profiler::$profiler->setDisplay(new Particletree\Pqp\Display());
-            DB::addHook('pre_run', function ($hash) {
-                Profiler::$console->logSpeed('START: ' . $hash['query']);
-            });
-            DB::addHook('post_run', function ($hash) {
-                Profiler::$console->logSpeed('END: ' . $hash['query']);
-                Profiler::$profiledQueries[] = $hash;
-            });
         }
     }
 
