@@ -4,7 +4,7 @@ Lightweight Model-View-Controller (MVC) framework for PHP that aims to provide a
 
 # Server 
 
-Custom PHP.
+Custom PHP MVC.
 
 # Client
 
