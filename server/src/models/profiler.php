@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+define('CORE_DIR', dirname(__FILE__) . '/../../../');
+
+require CORE_DIR . '/vendor/autoload.php';
+
 class Profiler {
     public static array $profiledQueries = [];
 
