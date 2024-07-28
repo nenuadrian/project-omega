@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?=$title?></title>
+    <title><?=isset($title) ? $title : 'APP'?></title>
     <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="/assets/img/icon.png">
