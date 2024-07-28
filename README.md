@@ -14,6 +14,9 @@ git config --global user.email adrian.nenu@gmail.com
 git config --global user.name Adrian
 ```
 
+## Add webhook for auto-deploy
+
+Webhook to `https://domain.com/deploy/deploy` in GitHub hooks e.g. https://github.com/nenuadrian/cardinal/settings/hooks
 
 # Server 
 
