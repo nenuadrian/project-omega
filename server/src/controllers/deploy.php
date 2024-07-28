@@ -5,14 +5,17 @@ class DeployController extends Controller
 
     public function deploy(): void
     {
-      
-      $output = shell_exec('cd ~/project-omega && git pull origin main');
-  
-        // Display the list of all file
-        // and directory
-        echo "<pre>$output</pre>";
-    }
+      $project_dir = getcwd() . '/../../../project-omega/server/'; 
+      $commands = ['cd ' . $project_dir, 'git pull origin main', 'php composer.phar install'];
+      $command = implode(' && ', $commands);
 
-   
+      echo "<pre>$command</pre>";
+      
+      $output = shell_exec($command);
+  
+      // Display the list of all file
+      // and directory
+      echo "<pre>$output</pre>";
+    }
 
 }
