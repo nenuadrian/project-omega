@@ -4,22 +4,6 @@
 
 Lightweight Model-View-Controller (MVC) framework for PHP that aims to provide a simple and efficient solution for building web applications. It emphasizes simplicity, flexibility, and performance, making it ideal for small to medium-sized projects.
 
-# Server 
-
-Custom PHP MVC.
-
-# Client
-
-Choices between Angular in `client` directory and HTML in PHP, using `server/src/views/`.
-
-# Install 
-```
-git clone git@github.com:nenuadrian/project-omega.git
-
-git submodule update --init --recursive
-
-git pull --recurse-submodules
-```
 
 # Add key to github 
 ```
@@ -31,7 +15,9 @@ git config --global user.name Adrian
 ```
 
 
-# server
+# Server 
+
+Custom PHP MVC.
 
 ## Setup
 
@@ -75,3 +61,16 @@ vendor/bin/phpstan analyse src tests
 /usr/local/php80/bin/php vendor/bin/phpstan analyse src tests
 ```
 
+
+# Client
+
+Choices between Angular in `client` directory and HTML in PHP, using `server/src/views/`.
+
+# Install 
+```
+git clone git@github.com:nenuadrian/project-omega.git
+
+git submodule update --init --recursive
+
+git pull --recurse-submodules
+```
