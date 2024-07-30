@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "sergeytsalkov/meekrodb": "^2.4",
         "phpfastcache/phpfastcache": "^9.0",
         "particletree/pqp": "^1.1",
         "jenssegers/date": "^4.0",
