@@ -11,7 +11,6 @@
         "phpfastcache/phpfastcache": "^9.0",
         "particletree/pqp": "^1.1",
         "jenssegers/date": "^4.0",
-        "chriskonnertz/bbcode": "^1.1",
         "ramsey/uuid": "^4.3",
         "fakerphp/faker": "^1.19.0",
         "rmccue/requests": "^2.0",
