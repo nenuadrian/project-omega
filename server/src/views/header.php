@@ -19,6 +19,24 @@
         https://cdn.jsdelivr.net/npm/vis@4.21.0-EOL/dist/vis.min.css
         " rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="<?=BASE_URL?>/hotkeys.min.js"></script>
+    <script type="text/javascript">
+    hotkeys('<?=implode(',', array_map(function ($shortcut) { return $shortcut['keys']; }, Shortcuts::shortcuts()))?>',
+        function(event, handler) {
+            switch (handler.key) {
+                <?php foreach (Shortcuts::shortcuts() as $shortcut): ?>
+                case '<?=$shortcut['keys']?>':
+                    <?php if (isset($shortcut['location'])): ?>
+                    document.location = '<?=$shortcut['location']?>';
+                    <?php endif; ?>
+                    <?php if (isset($shortcut['function'])): ?>
+                    <?=$shortcut['function']?>();
+                    <?php endif; ?>
+                    break;
+                    <?php endforeach;?>
+            }
+        });
+    </script>
 </head>
 
 <body>
