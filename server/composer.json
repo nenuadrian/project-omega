@@ -16,7 +16,8 @@
         "rmccue/requests": "^2.0",
         "aeon-php/calendar": "^1.0",
         "erusev/parsedown": "^1.7",
-        "stripe/stripe-php": "^10.15"
+        "stripe/stripe-php": "^10.15",
+        "phpmailer/phpmailer": "^6.9.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
