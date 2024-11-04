@@ -7,7 +7,7 @@
     "build": "ng build",
     "release": "ng build && rm -rf ../server/public_html/app && mkdir -p ../server/public_html/app && cp -R dist/client/* ../server/public_html/app && cp -R dist/client/browser/* ../server/public_html/app",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --watch=false"
   },
   "private": true,
   "dependencies": {
