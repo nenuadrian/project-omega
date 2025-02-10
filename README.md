@@ -56,11 +56,6 @@ vendor/bin/phpstan analyse src tests
 /usr/local/php80/bin/php vendor/bin/phpstan analyse src tests
 ```
 
-
-# Client
-
-Choices between Angular in `client` directory and HTML in PHP, using `server/src/views/`.
-
 # Install 
 ```
 git clone git@github.com:nenuadrian/project-omega.git
