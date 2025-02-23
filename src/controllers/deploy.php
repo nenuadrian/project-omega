@@ -5,7 +5,7 @@ class DeployController extends Controller
 
     public function deploy(): void
     {
-      $project_dir = getcwd() . '/../../../project-omega/server/'; 
+      $project_dir = getcwd() . '/../'; 
       $commands = [
         'cd ' . $project_dir,
         'git pull origin main',
