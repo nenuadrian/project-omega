@@ -1,4 +1,4 @@
-<?php declare (strict_types = 1);
+<?php declare(strict_types=1);
 
 class AuthController extends Controller
 {
@@ -22,16 +22,16 @@ class AuthController extends Controller
     {
         $tVars = ['errors' => []];
         try {
-          if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
+            if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
 
-            if (Input::post('action') == 'login') {
-                $session_hash = $this->doLogin();
-                $_SESSION['session_hash'] = $session_hash;
-                $this->redirect(BASE_URL . '/app');
+                if (Input::post('action') == 'login') {
+                    $session_hash = $this->doLogin();
+                    $_SESSION['session_hash'] = $session_hash;
+                    $this->redirect(BASE_URL . '/app');
+                }
+            } else {
+                throw new Exception('Failed captcha');
             }
-          } else {
-              throw new Exception('Failed captcha');
-          }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
         }
@@ -45,8 +45,11 @@ class AuthController extends Controller
                 throw new Exception("Invalid e-mail format!");
             }
             $session_hash = null;
-            $userId = User::register(Input::post('username'), Input::post('email'),
-                Input::post('password'));
+            $userId = User::register(
+                Input::post('username'),
+                Input::post('email'),
+                Input::post('password')
+            );
 
             $session_hash = User::login(Input::post('email'), Input::post('password'));
 
@@ -68,15 +71,15 @@ class AuthController extends Controller
     {
         $tVars = ['errors' => []];
         try {
-              if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
-            if (Input::post('action') == 'register') {
-                $session_hash = $this->doRegister();
-                $_SESSION['session_hash'] = $session_hash;
-                $this->redirect(BASE_URL . '/app');
+            if (!Configs::get('captcha') || $this->captcha(Input::post('g-recaptcha-response'))) {
+                if (Input::post('action') == 'register') {
+                    $session_hash = $this->doRegister();
+                    $_SESSION['session_hash'] = $session_hash;
+                    $this->redirect(BASE_URL . '/app');
+                }
+            } else {
+                throw new Exception("Failed captcha");
             }
-              } else {
-                   throw new Exception("Failed captcha");
-              }
         } catch (Exception $error) {
             $tVars['errors'][] = $error->getMessage();
         }
@@ -94,10 +97,9 @@ class AuthController extends Controller
 
     public function logout()
     {
-         if (session_status() == PHP_SESSION_ACTIVE) {
+        if (session_status() == PHP_SESSION_ACTIVE) {
             session_destroy();
         }
-        session_destroy();
         $this->redirect(BASE_URL);
     }
 

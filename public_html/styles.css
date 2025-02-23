@@ -190,6 +190,8 @@ body {
   --bs-navbar-toggler-border-color: transparents;
   --bs-navbar-toggler-focus-width: 0;
   --bs-navbar-toggler-font-size: 2rem;
+  --bs-navbar-brand-color: white;
+  --bs-navbar-brand-hover-color: white;
 }
 
 a {
