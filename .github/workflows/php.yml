@@ -22,11 +22,11 @@ jobs:
         submodules: recursive
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Validate composer.json and composer.lock
-      run: cd server && composer validate
+      run: composer validate
     - name: Install dependencies
-      run: cd server && composer install --no-progress
+      run: composer install --no-progress
     - name: Run test suite
-      run: cd server && ./vendor/bin/phpunit tests
+      run: ./vendor/bin/phpunit tests
     # - name: Static analysis
     #   run: cd server && ./vendor/bin/phpstan analyse src tests
 
