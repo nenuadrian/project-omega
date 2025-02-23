@@ -27,6 +27,7 @@
 .text-right {
   text-align: right;
 }
+
 .card-footer {
   border-radius: 0;
 }
@@ -62,6 +63,7 @@ button {
   font-weight: 700;
   cursor: pointer;
 }
+
 button:hover {
   opacity: 0.7;
 }
@@ -74,6 +76,7 @@ button i {
 .text-center {
   text-align: center;
 }
+
 .text-right {
   text-align: right;
 }
@@ -92,6 +95,7 @@ select:-webkit-autofill:focus {
   -webkit-transition-delay: 9999s;
   outline: none;
 }
+
 .form-control {
   border-radius: 5px;
   background-color: transparent;
@@ -115,6 +119,7 @@ textarea.form-control {
   min-height: 500px;
   padding: 20px;
 }
+
 .form-control:hover,
 .form-control:active,
 .form-control:focus {
@@ -126,12 +131,37 @@ textarea.form-control {
 
 ::placeholder {
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input::-moz-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+input::-ms-placeholder {
+  color: white;
+  opacity: 1;
 }
 
 ::-ms-input-placeholder {
-  /* Edge 12 -18 */
   color: white;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: white;
+  opacity: 1;
 }
 
 ul {
