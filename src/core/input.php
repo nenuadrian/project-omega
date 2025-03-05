@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-final abstract class Input
+final class Input
 {
   public static function any(string $field): ?string
   {
