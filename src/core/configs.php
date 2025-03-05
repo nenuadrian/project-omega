@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-abstract class Configs {
+final class Configs {
   private static $configs;
   
   public static function init() {
